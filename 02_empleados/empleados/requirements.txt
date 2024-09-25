@@ -1,0 +1,9 @@
+#Crear el entorno virtual
+django
+python-dotenv
+# Para las imágenes
+Pillow
+# Para trabajar con postgres
+psycopg2
+# Apps de terceros para el admin de  django
+django-ckeditor

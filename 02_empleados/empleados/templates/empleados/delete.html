@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Eliminar empleado
+{% endblock title %}
+    
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-y" style="height: 500px;">
+            <div class="cell small-2 medium-2 large-2">
+                
+            </div>
+            <form class="cell" action="" method="post">
+                {% csrf_token %}
+                <div class="callout alert cell small-6 medium-4 large-10 text-center">
+                    <h5>¿Desea eliminar al empleado: {{ empleado.names }} {{ empleado.last_name }}?</h5>
+                    
+                        {% if empleado.image %}
+                            <img
+                                src="{{ empleado.image.url }}"
+                                alt="Foto de {{ empleado.names }}"
+                                width="150px"
+                                height="150px"
+                            />
+                        {% else %}
+                            <img
+                                src="../../media/empleados_img/default_image.png"
+                                alt="Imagen por defecto"
+                                width="150px"
+                                height="150px"
+                            />
+                        {% endif %}
+                                         
+                    <p>Recuerde que los datos se eliminarán permanentemente.</p>
+                    <div class="alert button">
+                        <button type="submit">Eliminar</button>
+                    </div>                    
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock title %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="card-section">
+            <h1>Login</h1>
+        </div>
+        <div class="grid-x">
+            <form 
+                class="cell grid-x grid-margin-x" 
+                method="post" 
+            >
+                {% csrf_token %}
+                
+                <!-- Campos por defecto -->
+                <div class="cell large-6">
+                    {{ form.as_p}}
+                </div>
+                
+                <!-- Botón Registrar Empleado -->
+                <div class="cell large-12 text-center">
+                    <button 
+                        class="success button"
+                        type="submit"
+                    ><b>Ingresar</b>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

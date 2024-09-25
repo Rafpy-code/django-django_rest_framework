@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar nuevo departamento
+{% endblock title %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="card-section grid-x">
+            <h1 class="cell text-center">Formulario de registro de Departamentos</h1>
+        </div>
+        <div class="grid-x">
+            <form 
+                class="cell grid-x grid-margin-x" 
+                method="post" 
+            >
+                {% csrf_token %}
+                <h3 class="cell large-12">Datos del empleado</h3>
+                
+                <!-- Campo Nombres -->
+                <div class="cell large-6"> 
+                    <label><b>Nombres:</b>
+                        {{ form.nombre }}
+                    </label>
+                </div>
+                
+                <!-- Campo Apellidos -->
+                <div class="cell large-6">
+                    <label><b>Apellidos:</b>
+                        {{ form.apellidos }}
+                    </label>
+                </div>
+                 
+                <!-- Campos del Departamento -->
+                <h3 class="cell large-12">Datos del departamento</h3>
+                <div class="cell large-6">
+                    <label><b>Departamento:</b>
+                        {{ form.departamento }}
+                    </label>
+                </div>
+                
+                <div class="cell large-6">
+                    <label><b>Nombre corto:</b>
+                        {{ form.nombre_corto }}
+                    </label>
+                </div>
+                
+                <!-- Botón Registrar Departamento -->
+                <div class="card-section"></div>
+                <div class="cell large-12 text-center">
+                    <button 
+                        class="success button"
+                        type="submit"
+                    ><b>Registrar departamento</b>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

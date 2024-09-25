@@ -1,0 +1,42 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li>
+          <a href="{% url 'home_app:inicio' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="{% url 'empleados_app:empleados_all' %}">Listar</a>
+        </li>
+        <li><a href="{% url 'departamentos_app:departamento_list' %}">Departamentos</a></li>
+        <li><a href="{% url 'departamentos_app:nuevo_departamento' %}">Nuevo departamento</a></li>
+        <li><a href="{% url 'empleados_app:empleados_admin' %}">Administrar</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>
+          <form 
+            class="cell grid-x grid-margin-x aling-center"
+            action="{% url 'empleados_app:empleados_all' %}" 
+            method="get" 
+          >
+            {% csrf_token %}
+            <div class="cell large-6">
+              <input
+                type="text"
+                name="kword"
+                id="kword"
+                value="{{ request.GET.kword }}"
+                placeholder="Empleado"
+              />
+            </div>
+            <div class="cell large-6">
+              <button type="submit" class="success button">Buscar</button>
+            </div>
+          </form>
+          <!-- <input type="search" placeholder="Buscar empleado"> -->
+        </li>
+        <li><a class="button" href="{% url 'empleados_app:empleado_add' %}">Registrar nuevo empleado</a></li>
+      </ul>
+    </div>
+  </div>

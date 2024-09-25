@@ -1,0 +1,13 @@
+<h1>Buscar empleados por palabra clave</h1>
+<form action="" method="get">
+    {% csrf_token %}
+    <input type="text" name="kword" id="kword" placeholder="Ingrese el nombre a buscar">
+    <button type="submit">Buscar</button>
+</form>
+
+<h3>Empleados encontrados</h3>
+<ul>
+    {% for empleado in empleados %}
+        <li>{{ empleado }}</li>
+    {% endfor %}
+</ul>

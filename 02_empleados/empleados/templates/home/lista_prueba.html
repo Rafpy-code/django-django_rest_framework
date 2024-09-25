@@ -1,0 +1,45 @@
+{% extends 'home/conmon/base_home.html' %}
+<!-- EN VERSIONES ANTERIORES load staticfiles -->
+{% load static %}
+
+    {% block titulo %}
+        Prueba
+    {% endblock titulo %}
+
+
+    {% block cuerpo %}
+        <div class="grid-container">
+            <div class="grid-x grid-padding-x grid-padding-y align-center align-middle">
+                <div class="card grid-margin-x cell large-4">        
+                    <div class="card-divider align-center">
+                        <h1>Lista Prueba</h1>
+                    </div>
+                    <!-- lista_prueba -->
+                    <div class="padding-x-20">
+                        <figure>
+                            <img src="{% static 'img/rana.jpg' %}">
+                        </figure>
+                    </div>
+                    <div class="card-section">
+                        <ul class="no-bullet">
+                            <hr>
+                            {% for prueba in lista_prueba %}
+                            <li class="grid-x grid-margin-x align-middle">
+                                <div class="cell small-4">
+                                  <strong>{{ prueba.titulo }}</strong>
+                                </div>
+                                <div class="cell small-4">
+                                  {{ prueba.subtitulo }}
+                                </div>
+                                <div class="cell small-4 text-right">
+                                  {{ prueba.cantidad }}
+                                </div>
+                              </li>
+                              <hr>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock cuerpo %}

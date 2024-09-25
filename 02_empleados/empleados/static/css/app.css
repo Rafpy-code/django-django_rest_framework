@@ -1,0 +1,79 @@
+body{
+    background-color: rgba(128, 128, 128, 0.5); /* Color gris con 50% de transparencia */
+}
+
+/* ESTILOS HOME.HTML */
+.same-si {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 390px; /* Fija la altura */
+    object-fit: cover; /* Asegura que las imágenes mantengan proporciones y se recorten si es necesario */
+}
+
+.same-size {
+    width: 25%; /* Ocupa el 100% del ancho del contenedor */
+    height: 50px; /* Fija la altura */
+    object-fit: cover; /* Asegura que las imágenes mantengan proporciones y se recorten si es necesario */
+}
+
+.fondo-gris-transparente {
+    background-color: rgba(128, 128, 128, 0.5); /* Color gris con 50% de transparencia */
+    padding: 20px; /* Añade padding para separar el contenido del borde */
+  }
+
+  /* ESTILOS DE LIST_ALL.HTML */
+  .employee-container {
+    margin-left: 17%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.employee {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    width: 250px;
+}
+
+.employee img {
+    width: 100px; /* Puedes ajustar este tamaño */
+    height: 150px; /* Puedes ajustar este tamaño */
+    object-fit: cover;
+}
+
+/* a {
+    display: block;
+}
+
+.botones {
+    margin-left: 25%;
+    margin-top: 20px;
+    background: #f7ae04;
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;            
+}
+
+.botones a {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+}
+
+.botones a:hover {
+    background-color: #f0f0f0;
+}
+
+.botones .active a {
+    background-color: #007bff;
+    color: white;
+    pointer-events: none;
+}
+
+.botones .disabled {
+    pointer-events: none;
+} */

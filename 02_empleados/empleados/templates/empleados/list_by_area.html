@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+
+{% block title %} 
+    Lista de empleados por departamento
+{% endblock title %} 
+
+{%block content %} 
+    {% include 'includes/header.html' %}
+    <div class="grid-container content-wrapper">
+        <div class="card-section"></div>
+        <div class="grid-x grid-margin-x grid-padding-x">
+            {% for empleado in empleados %} 
+                {% if empleado %}
+                    <div class="cell large-4">
+                        <div class="card" style="width: 300px">
+                            <div class="card-divider">
+                                {{empleado.names}} {{empleado.last_name}}
+                            </div>
+                            {% if empleado.image %}
+                                <div class="card-section text-center">
+                                    <img
+                                        src="{{ empleado.image.url }}"
+                                        alt="Foto de {{ empleado.names }}"
+                                        width="100px" height="100px"
+                                    />
+                                </div>
+                            {% else %}
+                                <div class="card-section text-center">
+                                    <img
+                                        src="../../static/img/default_image.png"
+                                        alt="Foto por defecto"
+                                        width="100px" height="100px"
+                                    />
+                                </div>
+                            {% endif %} 
+                        </div>
+                    </div>
+                {% endif %} 
+            {% endfor %}        
+        </div>
+    </div>
+{% endblock content %}

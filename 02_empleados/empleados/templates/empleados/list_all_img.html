@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% include 'includes/header.html' %}
+
+{% load static %}
+
+{% block title %}
+    Listado de Empleados
+{% endblock title %}
+
+{% block content %}
+    <!-- Barra de navegación -->
+    {% include 'includes/header.html' %}
+
+    <h1 class="text-center">Listado de Empleados</h1>
+    <div class="employee-container">
+        {% for empleado in object_list %}
+            <div class="employee">
+                <h3>{{ empleado.names }} {{ empleado.last_name }}</h3>
+                {% if empleado.image %}
+                    <img src="{{ empleado.image.url }}" alt="Foto de {{ empleado.names }}">
+                    {% else %}
+                    <img src="../../media/empleados_img/default_image.png" alt="Imagen por defecto">               
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Paginación -->
+    <div class="botones">
+            <!-- Link a la primera página -->
+            {% if page_obj.has_previous %}
+                <a href="?page=1">🏠</a>
+                <a href="?page={{ page_obj.previous_page_number }}">⬅️</a>
+            {% else %}
+                <a href="" class="disabled">🏠</a>
+                <a href="" class="disabled">⬅️</a>
+            {% endif %}
+
+            <!-- Mostrar un rango de páginas -->
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a href="" class="active"><a href="#">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Link a la siguiente página -->
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">➡️</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">🏁</a>
+            {% else %}
+                <a href="" class="disabled">➡️</a>
+                <a href="" class="disabled">🏁</a>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock content %}

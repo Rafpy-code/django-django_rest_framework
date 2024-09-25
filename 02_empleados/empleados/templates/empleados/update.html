@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Actualizar datos del empleado
+{% endblock title %}
+    
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="card-section"></div>
+        <div class="grid-x">
+            <form 
+                class="cell grid-x grid-margin-x" 
+                method="post" 
+                enctype="multipart/form-data"
+            >
+                {% csrf_token %}
+                
+                <!-- Campo Nombres -->
+                <div class="cell large-6">
+                    <label><b>Nombres:</b>
+                        {{ form.names }}
+                    </label>
+                </div>
+                
+                <!-- Campo Apellidos -->
+                <div class="cell large-6">
+                    <label><b>Apellidos:</b>
+                        {{ form.last_name }}
+                    </label>
+                </div>
+                
+                <!-- Campo Trabajo -->
+                <div class="cell large-6">
+                    <label><b>Trabajo:</b>
+                        {{ form.job }}
+                    </label>
+                </div>
+                
+                <!-- Campo Departamento -->
+                <div class="cell large-6">
+                    <label><b>Departamento:</b>
+                        {{ form.department }}
+                    </label>
+                </div>
+                
+                <!-- Campo Imagen -->
+                <div class="cell large-6">
+                    <label><b>Imagen:</b>
+                        {{ form.image }}
+                    </label>
+                </div>
+                
+                <!-- Campo Habilidades -->
+                <div class="cell large-6">
+                    <label><b>Habilidades:</b>
+                        {{ form.skills }}
+                    </label>
+                </div>
+                
+                <!-- Botón Registrar Empleado -->
+                <div class="cell large-12 text-center">
+                    <button 
+                        class="success button"
+                        type="submit"
+                    ><b>Actualizar datos</b>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
