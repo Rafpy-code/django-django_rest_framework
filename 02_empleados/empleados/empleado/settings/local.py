@@ -4,7 +4,12 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.140.1', # mi ip
+    '127.0.0.1',
+    '0.0.0.0',
+    'localhost',
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
